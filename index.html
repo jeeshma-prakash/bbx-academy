@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <title>BBX Academy for Students - Turn Your Passion Into a Digital Career</title>
     <meta name="description" content="Launch your digital marketing career with AI-powered training at BBX Academy">
     <!-- Bootstrap 5 CSS -->
@@ -18,9 +18,13 @@
         href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
         rel="stylesheet">
 
+    <!-- icon -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/landing.css">
 </head>
 
 <body class="student-page">
@@ -36,11 +40,9 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-10 text-center" data-aos="fade-up">
                         <h1 class="hero-headline-neu">
-                           From Passion to a Successful<br> <span class="gradient-text-neu">Digital Career</span>
-                            In AI
-                        </h1>
+                         Unlock Your Potential in the AI Era</h1>
                         <p class="hero-description-neu mx-auto">
-                            Connect with like-minded students for fun, friendships, and future opportunities.
+                           Stop studying history Start building the future. We build the bridge to the AI Era, turning raw potential into real-world competence.
                         </p>
 
                         <!-- CTA Buttons -->
@@ -84,68 +86,92 @@
         </div>
     </div>
 
-    <!-- About Section - Modern Design -->
-    <!-- About Section - B2A Style Design -->
-    <section class="about-section-b2a" id="about">
+    <!-- About Section - Two Column Layout -->
+    <section class="about-section-modern" id="about">
         <div class="container">
-            <!-- Section Header -->
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center" data-aos="fade-up">
-                    <h2 class="about-main-title">
-                        BBX Academy <span class="highlight-text">transforms students</span> into industry-ready professionals
-                    </h2>
+            <div class="about-wrapper">
+                <!-- Left Side - Title -->
+                <div class="about-left" data-aos="fade-right">
+                    <h2 class="about-title">About Us</h2>
+                </div>
+
+                <!-- Right Side - Content -->
+                <div class="about-right" data-aos="fade-left">
+                    <div class="about-content-box">
+                        <h3 class="about-headline">
+                            We believe that <span class="gradient-text">technology</span><br>
+                            can <span class="highlight-text">change the world.</span>
+                        </h3>
+                        <p class="about-description">
+                            That's why we're committed to democratizing innovation. It shouldn't be limited to those born into it or willing to deal with traditional education and job markets. Our team of experienced engineers and recruiters saw too much raw potential trapped by these barriers—and we knew it had to be rapidly evolving digital landscapes.
+                        </p>
+                        <p class="about-description">
+                            In Economics and other disciplines of business we do what others do, we help businesses succeed in the digital world. Our expertise includes web development, mobile development, cloud computing, cybersecurity, app digital marketing. We provide a full-service solution to meet the diverse needs of each of our clients.
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Cards Row -->
-            <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
-                <!-- Card 1 - Discovery & Analysis -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="about-card about-card-light">
-                        <div class="card-accent-bar"></div>
-                        <div class="card-inner">
-                            <h3 class="card-title-b2a">Discovery & Analysis</h3>
-                            <p class="card-description-b2a">
-                                System ingests existing student profiles, learning goals, and skill gaps to map personalized learning paths.
-                            </p>
-                        </div>
-                        <div class="step-indicator">
-                            <span class="step-number">1</span>
+            <!-- Process Grid - 4 Cards -->
+            <div class="process-grid" data-aos="fade-up" data-aos-delay="200">
+                <!-- Card 1 - Expertise -->
+                <div class="process-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="process-icon-wrapper">
+                        <div class="process-icon">
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="32" cy="20" r="12"/>
+                                <path d="M10 54c0-12 10-20 22-20s22 8 22 20"/>
+                                <path d="M32 34v-2m0-4v-2"/>
+                            </svg>
                         </div>
                     </div>
+                    <h4 class="process-title">expertise</h4>
+                    <p class="process-description">Our team of experienced experts share the knowledge and expertise that will equip you to meet your unique needs</p>
                 </div>
 
-                <!-- Card 2 - Configure & Test (with image) -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="about-card about-card-image">
-                        <div class="card-image-wrapper">
-                            <img src="assets/images/download (1).jfif" alt="Configure and Test" class="card-image">
-                        </div>
-                        <div class="card-content-overlay">
-                            <h3 class="card-title-b2a">Configure & Test</h3>
-                            <p class="card-description-b2a">
-                                Uplifts theoretical knowledge into resilient, adaptive AI-powered learning modules.
-                            </p>
-                        </div>
-                        <div class="step-indicator">
-                            <span class="step-number">2</span>
+                <!-- Card 2 - Technology -->
+                <div class="process-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="process-icon-wrapper">
+                        <div class="process-icon">
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="16" y="10" width="32" height="44" rx="2"/>
+                                <line x1="28" y1="18" x2="36" y2="18"/>
+                                <line x1="24" y1="26" x2="40" y2="26"/>
+                                <line x1="24" y1="34" x2="40" y2="34"/>
+                                <line x1="24" y1="42" x2="32" y2="42"/>
+                            </svg>
                         </div>
                     </div>
+                    <h4 class="process-title">technology</h4>
+                    <p class="process-description">We stay up to date with the latest trends and technologies in the IT community, and we use advanced solutions available</p>
                 </div>
 
-                <!-- Card 3 - Deploy & Scale -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="about-card about-card-dark">
-                        <div class="card-inner">
-                            <h3 class="card-title-b2a">Deploy & Scale</h3>
-                            <p class="card-description-b2a">
-                                Activate graduates equipped with advanced skills and continuous learning, ready for real-world careers.
-                            </p>
-                        </div>
-                        <div class="step-indicator">
-                            <span class="step-number">3</span>
+                <!-- Card 3 - Solutions -->
+                <div class="process-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="process-icon-wrapper">
+                        <div class="process-icon">
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 10h24l10 10v34a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/>
+                                <path d="M44 10v10h10M20 34h24M20 42h16"/>
+                            </svg>
                         </div>
                     </div>
+                    <h4 class="process-title">solutions</h4>
+                    <p class="process-description">We take a personalized approach to every project, working closely with our clients to understand the unique needs and create solutions</p>
+                </div>
+
+                <!-- Card 4 - Results -->
+                <div class="process-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="process-icon-wrapper">
+                        <div class="process-icon">
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="32" cy="32" r="24"/>
+                                <path d="M32 16v16l12 8"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h4 class="process-title">results</h4>
+                    <p class="process-description">Our track record speaks for itself – we've helped businesses of all sizes and industries achieve their goals with our IT solutions</p>
                 </div>
             </div>
         </div>
@@ -740,7 +766,7 @@
                             </div>
                             <div class="coming-soon-content">
                                 <div class="coming-soon-image">
-                                    <img src="assets/images/coming-soon-testing.png" alt="Software Testing Coming Soon">
+                                    <img src="assets/images/wait-1.png" alt="Software Testing Coming Soon">
                                 </div>
                                 <div class="coming-soon-text">
                                     <div class="coming-soon-badge">
@@ -1255,93 +1281,96 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="join">
-        <div class="container">
-            <h2 class="contact-title" data-aos="fade-up">Contact us</h2>
-            <p class="contact-subtitle" data-aos="fade-up">Ask for a quotation from us!</p>
-
-            <div class="row g-5 align-items-start">
-                <!-- Left: Contact Form -->
-                <div class="col-lg-6" data-aos="fade-right">
-                    <form id="ctaEnquiryForm" class="contact-form needs-validation" novalidate>
-                        <div class="contact-field">
-                            <input type="text" class="form-control" id="ctaName" placeholder="Name" minlength="2"
-                                autocomplete="name" required>
-                        </div>
-                        <div class="contact-field">
-                            <input type="email" class="form-control" id="ctaEmail" placeholder="Email"
-                                autocomplete="email" required>
-                        </div>
-                        <div class="contact-field">
-                            <input type="tel" class="form-control" id="ctaPhone" placeholder="Phone"
-                                pattern="[0-9+\-\s]{6,}" autocomplete="tel" required>
-                        </div>
-                        <div class="contact-field">
-                            <textarea class="form-control" id="ctaMessage" placeholder="Your Message"
-                                rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-contact-submit">SEND</button>
-                    </form>
+    <!-- Contact Section with Map -->
+    <section class="contact-map-section" id="join">
+        <div class="contact-map-wrapper">
+            <!-- Left Side - Map with Title and Contact Info -->
+            <div class="contact-map-left">
+                <!-- Map Background -->
+                <div class="map-background">
+                    <iframe title="BBX Academy Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3791.8571846857235!2d76.95159347482655!3d8.49960069154211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x625845493c54b57d%3A0x6138dde12efa9dcc!2sBrinit!5e1!3m2!1sen!2sin!4v1762946753288!5m2!1sen!2sin"
+                        style="border:0; width:100%; height:100%; filter: grayscale(1) invert(1) brightness(0.85);"
+                        allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="map-overlay"></div>
                 </div>
 
-                <!-- Right: Contact Info -->
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="contact-info-card">
-                        <div class="contact-info-header">
-                            <span class="contact-info-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <circle cx="12" cy="12" r="3" />
-                                </svg>
-                            </span>
-                            <h3>Contact Information</h3>
+                <!-- Content on Map -->
+                <div class="map-content" data-aos="fade-right">
+                    <div class="map-link-wrapper">
+                        <a href="https://www.google.com/maps/place/Brinit/@8.499601,76.951593,17z" target="_blank" class="map-link">
+                            look at google maps
+                        </a>
+                    </div>
+                    
+                    <h2 class="contact-main-title">Contact us</h2>
+                    
+                    <div class="contact-info-wrapper">
+                        <div class="contact-info-block">
+                            <h4>OUR ADRESS</h4>
+                            <p>BBX Learning Citylink Tower<br> Bakery Junction, Trivandrum</p>
                         </div>
-
-                        <div class="contact-info-details">
-                            <div class="contact-info-item">
-                                <p><strong>Manjalikulam Road, GVR</strong></p>
-                                <p>Trivandrum, 695001</p>
-                                <p>Kerala, India</p>
-                            </div>
-                            <div class="contact-info-item">
-                                <p>Call us: <strong>+91 98765 43210</strong></p>
-                                <p>We are open from Monday to Friday</p>
-                                <p>8:00 AM - 07:00 PM</p>
-                            </div>
+                        
+                        <div class="contact-info-block">
+                            <h4>OUR CONTACTS</h4>
+                            <p>blackboxacademyy@gmail.com</p>
+                            <p>+91 9747299237</p>
                         </div>
+                    </div>
 
-                        <div class="contact-social">
-                            <h4>Follow Us</h4>
-                            <div class="contact-social-links">
-                                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-                                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                                <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-                            </div>
+                    <div class="contact-social-wrapper">
+                        <p class="social-label">— follow us</p>
+                        <div class="contact-social-icons">
+                            <a href="https://www.facebook.com/profile.php?id=61581536408277" target="_blank" aria-label="Facebook" class="social-icon">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="https://www.instagram.com/bbx.learning/" target="_blank"aria-label="Instagram" class="social-icon">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/bbx-learning/" target="_blank"aria-label="LinkedIn" class="social-icon">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Map Section -->
-    <section class="location-section" id="location">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-
-                <div class="col-lg-12" data-aos="fade-left">
-                    <div class="position-relative rounded-4 overflow-hidden shadow-sm" style="min-height: 340px;">
-                        <iframe title="BBX Academy Location"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3791.8571846857235!2d76.95159347482655!3d8.49960069154211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x625845493c54b57d%3A0x6138dde12efa9dcc!2sBrinit!5e1!3m2!1sen!2sin!4v1762946753288!5m2!1sen!2sin"
-                            width="600" height="450"
-                            style="border:0; width:100%; height:100%; min-height:340px; filter: grayscale(.5); position:relative; z-index:0;"
-                            allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <!-- <div aria-hidden="true" class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(40,40,40,0.55), rgba(255,120,0,0.45)); mix-blend-mode: multiply; pointer-events: none; z-index:1;"></div> -->
-                    </div>
+            <!-- Right Side - Feedback Form Card -->
+            <div class="contact-form-right" data-aos="fade-left">
+                <div class="feedback-form-card">
+                    <h3 class="form-title">FEEDBACK FORM</h3>
+                    
+                    <form id="ctaEnquiryForm" class="feedback-form needs-validation" novalidate>
+                        <div class="form-group">
+                            <input type="text" class="form-input" id="ctaName" placeholder="Name" minlength="2"
+                                autocomplete="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-input" id="ctaEmail" placeholder="E-mail"
+                                autocomplete="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" class="form-input" id="ctaPhone" placeholder="Phone"
+                                pattern="[0-9+\-\s]{6,}" autocomplete="tel" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-input form-textarea" id="ctaMessage" placeholder="Message"
+                                rows="4"></textarea>
+                        </div>
+                        
+                        
+                        
+                        <button type="submit" class="btn-submit-form">
+                            SEND MESSAGE
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1350,7 +1379,7 @@
 
 
     <!-- Footer -->
-   |<div id="footer"></div>
+    <div id="footer"></div>
 
 
     <!-- Bootstrap 5 JS -->
@@ -1364,423 +1393,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <!-- Custom JS -->
-    <script src="js/landing.js"></script>
-
-    <script>
-        const steps = Array.from(document.querySelectorAll('[data-step]'));
-        const progressBar = document.getElementById('progressBar');
-        const stepCount = document.getElementById('stepCount');
-        const resultCard = document.getElementById('resultCard');
-        const courseList = document.getElementById('courseList');
-        const tryAgain = document.getElementById('tryAgain');
-        const ctaEnroll = document.getElementById('ctaEnroll');
-
-        let current = 1;
-        const max = steps.length;
-        const score = { creative: 0, frontend: 0, backend: 0, fullstack: 0 };
-
-        const courseMap = {
-            creative: {
-                title: 'Digital Marketing Complete Program',
-                desc: 'SEO, Social Media, Ads, Analytics & Branding with hands-on projects.',
-                chips: ['SEO', 'SMM', 'Analytics', 'Content'],
-                link: '#digital-marketing'
-            },
-            frontend: {
-                title: 'Front-End Development Bootcamp',
-                desc: 'HTML, CSS, JavaScript, Bootstrap 5, GSAP animations, and UI workflows.',
-                chips: ['HTML/CSS', 'Bootstrap', 'GSAP', 'UX'],
-                link: '#front-end'
-            },
-            backend: {
-                title: 'Back-End Development with APIs',
-                desc: 'Databases, Node.js, authentication, security, and scalable API design.',
-                chips: ['Node.js', 'Databases', 'Auth', 'Security'],
-                link: '#back-end'
-            },
-            fullstack: {
-                title: 'Full-Stack Developer Path',
-                desc: 'From UI to server: build and deploy complete apps end-to-end.',
-                chips: ['Front + Back', 'Git', 'Deploy', 'DevTools'],
-                link: '#full-stack'
-            },
-        };
-
-        const testimonialFeeds = {
-            left: [
-                {
-                    initials: 'AM',
-                    name: 'Aman Mehta',
-                    role: 'SEO Specialist · Digital Nest',
-                    body: 'Live projects, growth dashboards, and weekly mentor huddles helped me build a full-stack SEO portfolio. I signed an offer even before my final assessment.'
-                },
-                {
-                    initials: 'SP',
-                    name: 'Sneha Patel',
-                    role: 'Performance Marketer · GrowthForge',
-                    body: 'From running social ads to mastering attribution with GA4, the program pushed me into leadership conversations. I now manage campaigns with 5x ROAS.'
-                },
-                {
-                    initials: 'DM',
-                    name: 'Divya Menon',
-                    role: 'Content Strategist · StoryGrid',
-                    body: 'Content sprints with AI co-pilots mean I ideate, draft, and ship campaigns in half the time. Clients love the performance insights I share every Friday.'
-                },
-                {
-                    initials: 'AD',
-                    name: 'Arjun Desai',
-                    role: 'Marketing Analyst · FinEdge Labs',
-                    body: 'The cohort model kept me accountable. I blend Excel, Looker Studio, and automation stacks to deliver intelligence dashboards for leaders.'
-                }
-            ],
-            right: [
-                {
-                    initials: 'RK',
-                    name: 'Ravi Kumar',
-                    role: 'Digital Marketing Executive · TechStart',
-                    body: 'I was a B.Com graduate with no tech skills. BBX Academy showed me how to leverage AI for growth marketing and I landed a ₹35K/month role within three months.'
-                },
-                {
-                    initials: 'PS',
-                    name: 'Priya Sharma',
-                    role: 'Freelance Digital Marketer',
-                    body: 'The AI-first playbooks were a game-changer. I automate content, SEO audits, and campaign planning for clients worldwide and crossed ₹1.2L/month in six months.'
-                },
-                {
-                    initials: 'NV',
-                    name: 'Neha Verma',
-                    role: 'Product Marketing Lead · SaaSFlow',
-                    body: 'BBX mentors helped me shift from support to product marketing. My GTM assets now blend storytelling, AI copy, and data proof points that convert.'
-                },
-                {
-                    initials: 'KS',
-                    name: 'Karan Singh',
-                    role: 'Growth Consultant · FunnelFix',
-                    body: 'The placement pod polished my portfolio and interview narrative. I now lead retention for three D2C brands with a 28% uplift in repeat orders.'
-                }
-            ]
-        };
-
-        const testimonialLayouts = {
-            'middle-active': cards => {
-                if (cards.length >= 3) return [1];
-                if (cards.length === 2) return [0];
-                return [0];
-            },
-            'ends-active': cards => {
-                if (cards.length >= 3) return [0, cards.length - 1];
-                if (cards.length === 2) return [0, 1];
-                return [0];
-            },
-            default: cards => cards.map((_, idx) => idx)
-        };
-
-        function renderTestimonialCard(card, data) {
-            card.classList.add('is-active');
-            card.classList.remove('is-placeholder');
-            card.removeAttribute('aria-hidden');
-            card.innerHTML = `
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">${data.initials}</div>
-                    <div>
-                        <h5>${data.name}</h5>
-                        <p>${data.role}</p>
-                    </div>
-                </div>
-                <p class="testimonial-body">${data.body}</p>
-            `;
-        }
-
-        function renderPlaceholderCard(card) {
-            card.classList.remove('is-active');
-            card.classList.add('is-placeholder');
-            card.setAttribute('aria-hidden', 'true');
-            card.innerHTML = '';
-        }
-
-        function safeModulo(value, length) {
-            if (!length) {
-                return 0;
-            }
-            return ((value % length) + length) % length;
-        }
-
-        // Auto loops the testimonial columns on larger screens
-        function initTestimonialStreams() {
-            if (typeof gsap === 'undefined') {
-                return;
-            }
-
-            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-            if (reduceMotion.matches) {
-                return;
-            }
-
-            const columns = Array.from(document.querySelectorAll('[data-scroll-direction]'));
-            if (!columns.length) {
-                return;
-            }
-
-            const instances = new Map();
-            const mediaQuery = window.matchMedia('(min-width: 768px)');
-
-            const enable = () => {
-                columns.forEach(column => {
-                    if (!instances.has(column)) {
-                        instances.set(column, createTestimonialLooper(column));
-                    }
-                });
-            };
-
-            const disable = () => {
-                instances.forEach(dispose => dispose());
-                instances.clear();
-            };
-
-            const handleBreakpoint = event => {
-                if (event.matches) {
-                    enable();
-                } else {
-                    disable();
-                }
-            };
-
-            const handleReduceMotion = event => {
-                if (event.matches) {
-                    disable();
-                } else if (mediaQuery.matches) {
-                    enable();
-                }
-            };
-
-            if (mediaQuery.matches) {
-                enable();
-            }
-
-            if (mediaQuery.addEventListener) {
-                mediaQuery.addEventListener('change', handleBreakpoint);
-            } else {
-                mediaQuery.addListener(handleBreakpoint);
-            }
-
-            if (reduceMotion.addEventListener) {
-                reduceMotion.addEventListener('change', handleReduceMotion);
-            } else {
-                reduceMotion.addListener(handleReduceMotion);
-            }
-        }
-
-        function createTestimonialLooper(column) {
-            const direction = column.dataset.scrollDirection === 'down' ? 'down' : 'up';
-            const interval = Math.max(parseFloat(column.dataset.scrollInterval) || 4, 2);
-            const startDelay = parseFloat(column.dataset.startDelay) || interval;
-            const getCards = () => Array.from(column.querySelectorAll('.testimonial-card'));
-            const initialCards = getCards();
-            if (!initialCards.length) {
-                return () => { };
-            }
-
-            const layoutKey = column.dataset.layout || 'default';
-            const layoutFn = testimonialLayouts[layoutKey] || testimonialLayouts.default;
-            const activeSlots = layoutFn(initialCards).filter(idx => idx >= 0 && idx < initialCards.length);
-            const feedKey = column.dataset.feed;
-            const feed = testimonialFeeds[feedKey] || [];
-
-            if (!activeSlots.length || !feed.length) {
-                getCards().forEach(card => renderPlaceholderCard(card));
-                return () => { };
-            }
-
-            const canAdvance = feed.length > activeSlots.length;
-            const getGap = () => {
-                const styles = getComputedStyle(column);
-                const gap = parseFloat(styles.gap || styles.rowGap || styles.marginBottom || 0);
-                return Number.isNaN(gap) ? 0 : gap;
-            };
-
-            const state = { pointer: 0 };
-            let timeoutId = null;
-            let tween = null;
-
-            const applyState = () => {
-                const cards = getCards();
-                cards.forEach((card, idx) => {
-                    if (activeSlots.includes(idx)) {
-                        const order = activeSlots.indexOf(idx);
-                        const data = feed[safeModulo(state.pointer + order, feed.length)];
-                        renderTestimonialCard(card, data);
-                    } else {
-                        renderPlaceholderCard(card);
-                    }
-                });
-            };
-
-            const resetPosition = () => gsap.set(column, { y: 0 });
-
-            const clearTimer = () => {
-                if (timeoutId) {
-                    clearTimeout(timeoutId);
-                    timeoutId = null;
-                }
-            };
-
-            const stopTween = () => {
-                if (tween) {
-                    tween.kill();
-                    tween = null;
-                }
-            };
-
-            const schedule = (delay = interval) => {
-                if (!canAdvance) {
-                    return;
-                }
-                clearTimer();
-                timeoutId = window.setTimeout(shift, delay * 1000);
-            };
-
-            const shift = () => {
-                const cards = getCards();
-                if (cards.length <= 1) {
-                    return;
-                }
-
-                const target = direction === 'up' ? cards[0] : cards[cards.length - 1];
-                const distance = target.offsetHeight + getGap();
-
-                if (!distance) {
-                    state.pointer = safeModulo(state.pointer + 1, feed.length);
-                    applyState();
-                    schedule();
-                    return;
-                }
-
-                tween = gsap.to(column, {
-                    y: direction === 'up' ? -distance : distance,
-                    duration: 0.9,
-                    ease: 'power2.inOut',
-                    onComplete: () => {
-                        if (direction === 'up') {
-                            column.appendChild(target);
-                        } else {
-                            column.insertBefore(target, column.firstElementChild);
-                        }
-                        state.pointer = safeModulo(state.pointer + 1, feed.length);
-                        applyState();
-                        resetPosition();
-                        schedule();
-                    }
-                });
-            };
-
-            const handleMouseEnter = () => clearTimer();
-            const handleMouseLeave = () => schedule();
-            const handleResize = () => resetPosition();
-
-            applyState();
-
-            column.addEventListener('mouseenter', handleMouseEnter);
-            column.addEventListener('mouseleave', handleMouseLeave);
-            window.addEventListener('resize', handleResize);
-
-            schedule(startDelay);
-
-            return () => {
-                clearTimer();
-                stopTween();
-                resetPosition();
-                column.removeEventListener('mouseenter', handleMouseEnter);
-                column.removeEventListener('mouseleave', handleMouseLeave);
-                window.removeEventListener('resize', handleResize);
-            };
-        }
-
-        function updateProgress() {
-            const pct = (current - 0.9) / max * 100;
-            progressBar.style.width = Math.min(100, pct) + '%';
-            stepCount.textContent = `Q${current}/${max}`;
-        }
-
-        function showStep(n) {
-            steps.forEach(step => step.classList.toggle('d-none', Number(step.dataset.step) !== n));
-            updateProgress();
-            const active = steps.find(s => Number(s.dataset.step) === n);
-        }
-
-        function sprinkleConfetti() {
-            const colors = ['#ff7a00', '#ffd166', '#0ea5e9', '#22c55e'];
-            const wrap = document.querySelector('#careerModal .modal-content');
-            for (let i = 0; i < 28; i++) {
-                const c = document.createElement('span');
-                c.className = 'confetti';
-                c.style.left = Math.random() * 100 + '%';
-                c.style.top = '-20px';
-                c.style.background = colors[Math.floor(Math.random() * colors.length)];
-                wrap.appendChild(c);
-            }
-        }
-
-        function record(tag) {
-            score[tag]++;
-            if (current === max) {
-                const track = decidePath();
-                renderResult(track);
-                return;
-            }
-            current++;
-            showStep(current);
-        }
-
-        function decidePath() {
-            return Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
-        }
-
-        function renderResult(track) {
-            const data = courseMap[track];
-            courseList.innerHTML = '';
-            const card = document.createElement('div');
-            card.className = 'col-12';
-            card.innerHTML = `
-        <div class="course-card d-flex flex-column flex-md-row gap-3 align-items-start">
-          <div class="fs-1 text-warning"><i class="bi ${track === 'creative' ? 'bi-megaphone' : track === 'frontend' ? 'bi-palette' : track === 'backend' ? 'bi-database' : 'bi-diagram-3'}"></i></div>
-          <div class="flex-grow-1">
-            <h5 class="mb-1">${data.title}</h5>
-            <p class="hint mb-2">${data.desc}</p>
-            <div class="d-flex flex-wrap gap-2">
-              ${data.chips.map(c => `<span class='badge rounded-pill course-chip'>${c}</span>`).join('')}
-            </div>
-          </div>
-        </div>`;
-            courseList.appendChild(card);
-            document.getElementById('quizBody').style.display = 'none';
-            resultCard.style.display = 'block';
-            document.getElementById('ctaEnroll').setAttribute('href', data.link);
-            sprinkleConfetti();
-        }
-
-        // wire choices
-        document.querySelectorAll('.choice').forEach(btn => btn.addEventListener('click', () => record(btn.dataset.tag)));
-
-        function resetQuiz() {
-            Object.keys(score).forEach(k => score[k] = 0);
-            current = 1;
-            steps.forEach(s => s.classList.add('d-none'));
-            document.getElementById('quizBody').style.display = '';
-            resultCard.style.display = 'none';
-            showStep(current);
-        }
-
-        // try again
-        document.getElementById('tryAgain')?.addEventListener('click', resetQuiz);
-
-        // When modal opens, reset quiz
-        const modalEl = document.getElementById('careerModal');
-        modalEl.addEventListener('shown.bs.modal', resetQuiz);
-
-        // init first step immediately (so layout measures are ready)
-        showStep(current);
-        initTestimonialStreams();
-    </script>
+    <script src="assets/js/landing.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

@@ -758,3 +758,447 @@ const initInteractiveCircles = () => {
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', initInteractiveCircles);
+
+// ========================================
+// Career Quiz & Testimonials Logic
+// ========================================
+
+const steps = Array.from(document.querySelectorAll('[data-step]'));
+const progressBar = document.getElementById('progressBar');
+const stepCount = document.getElementById('stepCount');
+const resultCard = document.getElementById('resultCard');
+const courseList = document.getElementById('courseList');
+const tryAgain = document.getElementById('tryAgain');
+const ctaEnroll = document.getElementById('ctaEnroll');
+
+let current = 1;
+const max = steps.length;
+const score = { creative: 0, frontend: 0, backend: 0, fullstack: 0 };
+
+const courseMap = {
+    creative: {
+        title: 'Digital Marketing Complete Program',
+        desc: 'SEO, Social Media, Ads, Analytics & Branding with hands-on projects.',
+        chips: ['SEO', 'SMM', 'Analytics', 'Content'],
+        link: '#digital-marketing'
+    },
+    frontend: {
+        title: 'Front-End Development Bootcamp',
+        desc: 'HTML, CSS, JavaScript, Bootstrap 5, GSAP animations, and UI workflows.',
+        chips: ['HTML/CSS', 'Bootstrap', 'GSAP', 'UX'],
+        link: '#front-end'
+    },
+    backend: {
+        title: 'Back-End Development with APIs',
+        desc: 'Databases, Node.js, authentication, security, and scalable API design.',
+        chips: ['Node.js', 'Databases', 'Auth', 'Security'],
+        link: '#back-end'
+    },
+    fullstack: {
+        title: 'Full-Stack Developer Path',
+        desc: 'From UI to server: build and deploy complete apps end-to-end.',
+        chips: ['Front + Back', 'Git', 'Deploy', 'DevTools'],
+        link: '#full-stack'
+    },
+};
+
+const testimonialFeeds = {
+    left: [
+        {
+            initials: 'AM',
+            name: 'Aman Mehta',
+            role: 'SEO Specialist · Digital Nest',
+            body: 'Live projects, growth dashboards, and weekly mentor huddles helped me build a full-stack SEO portfolio. I signed an offer even before my final assessment.'
+        },
+        {
+            initials: 'SP',
+            name: 'Sneha Patel',
+            role: 'Performance Marketer · GrowthForge',
+            body: 'From running social ads to mastering attribution with GA4, the program pushed me into leadership conversations. I now manage campaigns with 5x ROAS.'
+        },
+        {
+            initials: 'DM',
+            name: 'Divya Menon',
+            role: 'Content Strategist · StoryGrid',
+            body: 'Content sprints with AI co-pilots mean I ideate, draft, and ship campaigns in half the time. Clients love the performance insights I share every Friday.'
+        },
+        {
+            initials: 'AD',
+            name: 'Arjun Desai',
+            role: 'Marketing Analyst · FinEdge Labs',
+            body: 'The cohort model kept me accountable. I blend Excel, Looker Studio, and automation stacks to deliver intelligence dashboards for leaders.'
+        }
+    ],
+    right: [
+        {
+            initials: 'RK',
+            name: 'Ravi Kumar',
+            role: 'Digital Marketing Executive · TechStart',
+            body: 'I was a B.Com graduate with no tech skills. BBX Academy showed me how to leverage AI for growth marketing and I landed a ₹35K/month role within three months.'
+        },
+        {
+            initials: 'PS',
+            name: 'Priya Sharma',
+            role: 'Freelance Digital Marketer',
+            body: 'The AI-first playbooks were a game-changer. I automate content, SEO audits, and campaign planning for clients worldwide and crossed ₹1.2L/month in six months.'
+        },
+        {
+            initials: 'NV',
+            name: 'Neha Verma',
+            role: 'Product Marketing Lead · SaaSFlow',
+            body: 'BBX mentors helped me shift from support to product marketing. My GTM assets now blend storytelling, AI copy, and data proof points that convert.'
+        },
+        {
+            initials: 'KS',
+            name: 'Karan Singh',
+            role: 'Growth Consultant · FunnelFix',
+            body: 'The placement pod polished my portfolio and interview narrative. I now lead retention for three D2C brands with a 28% uplift in repeat orders.'
+        }
+    ]
+};
+
+const testimonialLayouts = {
+    'middle-active': cards => {
+        if (cards.length >= 3) return [1];
+        if (cards.length === 2) return [0];
+        return [0];
+    },
+    'ends-active': cards => {
+        if (cards.length >= 3) return [0, cards.length - 1];
+        if (cards.length === 2) return [0, 1];
+        return [0];
+    },
+    default: cards => cards.map((_, idx) => idx)
+};
+
+function renderTestimonialCard(card, data) {
+    card.classList.add('is-active');
+    card.classList.remove('is-placeholder');
+    card.removeAttribute('aria-hidden');
+    card.innerHTML = `
+        <div class="testimonial-header">
+            <div class="testimonial-avatar">${data.initials}</div>
+            <div>
+                <h5>${data.name}</h5>
+                <p>${data.role}</p>
+            </div>
+        </div>
+        <p class="testimonial-body">${data.body}</p>
+    `;
+}
+
+function renderPlaceholderCard(card) {
+    card.classList.remove('is-active');
+    card.classList.add('is-placeholder');
+    card.setAttribute('aria-hidden', 'true');
+    card.innerHTML = '';
+}
+
+function safeModulo(value, length) {
+    if (!length) {
+        return 0;
+    }
+    return ((value % length) + length) % length;
+}
+
+// Auto loops the testimonial columns on larger screens
+function initTestimonialStreams() {
+    if (typeof gsap === 'undefined') {
+        return;
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduceMotion.matches) {
+        return;
+    }
+
+    const columns = Array.from(document.querySelectorAll('[data-scroll-direction]'));
+    if (!columns.length) {
+        return;
+    }
+
+    const instances = new Map();
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+    const enable = () => {
+        columns.forEach(column => {
+            if (!instances.has(column)) {
+                instances.set(column, createTestimonialLooper(column));
+            }
+        });
+    };
+
+    const disable = () => {
+        instances.forEach(dispose => dispose());
+        instances.clear();
+    };
+
+    const handleBreakpoint = event => {
+        if (event.matches) {
+            enable();
+        } else {
+            disable();
+        }
+    };
+
+    const handleReduceMotion = event => {
+        if (event.matches) {
+            disable();
+        } else if (mediaQuery.matches) {
+            enable();
+        }
+    };
+
+    if (mediaQuery.matches) {
+        enable();
+    }
+
+    if (mediaQuery.addEventListener) {
+        mediaQuery.addEventListener('change', handleBreakpoint);
+    } else {
+        mediaQuery.addListener(handleBreakpoint);
+    }
+
+    if (reduceMotion.addEventListener) {
+        reduceMotion.addEventListener('change', handleReduceMotion);
+    } else {
+        reduceMotion.addListener(handleReduceMotion);
+    }
+}
+
+function createTestimonialLooper(column) {
+    const direction = column.dataset.scrollDirection === 'down' ? 'down' : 'up';
+    const interval = Math.max(parseFloat(column.dataset.scrollInterval) || 4, 2);
+    const startDelay = parseFloat(column.dataset.startDelay) || interval;
+    const getCards = () => Array.from(column.querySelectorAll('.testimonial-card'));
+    const initialCards = getCards();
+    if (!initialCards.length) {
+        return () => { };
+    }
+
+    const layoutKey = column.dataset.layout || 'default';
+    const layoutFn = testimonialLayouts[layoutKey] || testimonialLayouts.default;
+    const activeSlots = layoutFn(initialCards).filter(idx => idx >= 0 && idx < initialCards.length);
+    const feedKey = column.dataset.feed;
+    const feed = testimonialFeeds[feedKey] || [];
+
+    if (!activeSlots.length || !feed.length) {
+        getCards().forEach(card => renderPlaceholderCard(card));
+        return () => { };
+    }
+
+    const canAdvance = feed.length > activeSlots.length;
+    const getGap = () => {
+        const styles = getComputedStyle(column);
+        const gap = parseFloat(styles.gap || styles.rowGap || styles.marginBottom || 0);
+        return Number.isNaN(gap) ? 0 : gap;
+    };
+
+    const state = { pointer: 0 };
+    let timeoutId = null;
+    let tween = null;
+
+    const applyState = () => {
+        const cards = getCards();
+        cards.forEach((card, idx) => {
+            if (activeSlots.includes(idx)) {
+                const order = activeSlots.indexOf(idx);
+                const data = feed[safeModulo(state.pointer + order, feed.length)];
+                renderTestimonialCard(card, data);
+            } else {
+                renderPlaceholderCard(card);
+            }
+        });
+    };
+
+    const resetPosition = () => gsap.set(column, { y: 0 });
+
+    const clearTimer = () => {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+            timeoutId = null;
+        }
+    };
+
+    const stopTween = () => {
+        if (tween) {
+            tween.kill();
+            tween = null;
+        }
+    };
+
+    const schedule = (delay = interval) => {
+        if (!canAdvance) {
+            return;
+        }
+        clearTimer();
+        timeoutId = window.setTimeout(shift, delay * 1000);
+    };
+
+    const shift = () => {
+        const cards = getCards();
+        if (cards.length <= 1) {
+            return;
+        }
+
+        const target = direction === 'up' ? cards[0] : cards[cards.length - 1];
+        const distance = target.offsetHeight + getGap();
+
+        if (!distance) {
+            state.pointer = safeModulo(state.pointer + 1, feed.length);
+            applyState();
+            schedule();
+            return;
+        }
+
+        tween = gsap.to(column, {
+            y: direction === 'up' ? -distance : distance,
+            duration: 0.9,
+            ease: 'power2.inOut',
+            onComplete: () => {
+                if (direction === 'up') {
+                    column.appendChild(target);
+                } else {
+                    column.insertBefore(target, column.firstElementChild);
+                }
+                state.pointer = safeModulo(state.pointer + 1, feed.length);
+                applyState();
+                resetPosition();
+                schedule();
+            }
+        });
+    };
+
+    const handleMouseEnter = () => clearTimer();
+    const handleMouseLeave = () => schedule();
+    const handleResize = () => resetPosition();
+
+    applyState();
+
+    column.addEventListener('mouseenter', handleMouseEnter);
+    column.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('resize', handleResize);
+
+    schedule(startDelay);
+
+    return () => {
+        clearTimer();
+        stopTween();
+        resetPosition();
+        column.removeEventListener('mouseenter', handleMouseEnter);
+        column.removeEventListener('mouseleave', handleMouseLeave);
+        window.removeEventListener('resize', handleResize);
+    };
+}
+
+function updateProgress() {
+    if (!progressBar || !stepCount) return;
+    const pct = (current - 0.9) / max * 100;
+    progressBar.style.width = Math.min(100, pct) + '%';
+    stepCount.textContent = `Q${current}/${max}`;
+}
+
+function showStep(n) {
+    steps.forEach(step => step.classList.toggle('d-none', Number(step.dataset.step) !== n));
+    updateProgress();
+    const active = steps.find(s => Number(s.dataset.step) === n);
+}
+
+function sprinkleConfetti() {
+    const colors = ['#ff7a00', '#ffd166', '#0ea5e9', '#22c55e'];
+    const wrap = document.querySelector('#careerModal .modal-content');
+    if (!wrap) return;
+    for (let i = 0; i < 28; i++) {
+        const c = document.createElement('span');
+        c.className = 'confetti';
+        c.style.left = Math.random() * 100 + '%';
+        c.style.top = '-20px';
+        c.style.background = colors[Math.floor(Math.random() * colors.length)];
+        wrap.appendChild(c);
+    }
+}
+
+function record(tag) {
+    score[tag]++;
+    if (current === max) {
+        const track = decidePath();
+        renderResult(track);
+        return;
+    }
+    current++;
+    showStep(current);
+}
+
+function decidePath() {
+    return Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
+}
+
+function renderResult(track) {
+    const data = courseMap[track];
+    if (!courseList) return;
+    courseList.innerHTML = '';
+    const card = document.createElement('div');
+    card.className = 'col-12';
+    card.innerHTML = `
+        <div class="course-card d-flex flex-column flex-md-row gap-3 align-items-start">
+          <div class="fs-1 text-warning"><i class="bi ${track === 'creative' ? 'bi-megaphone' : track === 'frontend' ? 'bi-palette' : track === 'backend' ? 'bi-database' : 'bi-diagram-3'}"></i></div>
+          <div class="flex-grow-1">
+            <h5 class="mb-1">${data.title}</h5>
+            <p class="hint mb-2">${data.desc}</p>
+            <div class="d-flex flex-wrap gap-2">
+              ${data.chips.map(c => `<span class='badge rounded-pill course-chip'>${c}</span>`).join('')}
+            </div>
+          </div>
+        </div>`;
+    courseList.appendChild(card);
+    const quizBody = document.getElementById('quizBody');
+    if (quizBody) quizBody.style.display = 'none';
+    if (resultCard) resultCard.style.display = 'block';
+    if (ctaEnroll) ctaEnroll.setAttribute('href', data.link);
+    sprinkleConfetti();
+}
+
+function resetQuiz() {
+    Object.keys(score).forEach(k => score[k] = 0);
+    current = 1;
+    steps.forEach(s => s.classList.add('d-none'));
+    const quizBody = document.getElementById('quizBody');
+    if (quizBody) quizBody.style.display = '';
+    if (resultCard) resultCard.style.display = 'none';
+    showStep(current);
+}
+
+// Initialize career quiz functionality
+function initCareerQuiz() {
+    // Wire choices
+    document.querySelectorAll('.choice').forEach(btn => {
+        btn.addEventListener('click', () => record(btn.dataset.tag));
+    });
+
+    // Try again
+    const tryAgainBtn = document.getElementById('tryAgain');
+    if (tryAgainBtn) {
+        tryAgainBtn.addEventListener('click', resetQuiz);
+    }
+
+    // When modal opens, reset quiz
+    const modalEl = document.getElementById('careerModal');
+    if (modalEl) {
+        modalEl.addEventListener('shown.bs.modal', resetQuiz);
+    }
+
+    // Init first step immediately (so layout measures are ready)
+    if (steps.length > 0) {
+        showStep(current);
+    }
+    
+    // Initialize testimonial streams
+    initTestimonialStreams();
+}
+
+// Initialize everything when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCareerQuiz);
+} else {
+    initCareerQuiz();
+}

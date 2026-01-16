@@ -2,32 +2,6 @@
 // BBX Academy - Main JavaScript
 // ========================================
 
-// Preloader Animation
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    const mainContent = document.getElementById('main-content');
-    
-    // Wait for 2.5 seconds then hide preloader
-    setTimeout(() => {
-        preloader.classList.add('hidden');
-        
-        // Show main content after preloader fades
-        setTimeout(() => {
-            mainContent.classList.add('visible');
-            
-            // Initialize AOS after content is visible
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 1000,
-                    once: true,
-                    offset: 100,
-                    easing: 'ease-out-cubic'
-                });
-            }
-        }, 300);
-    }, 2500);
-});
-
 
 
 // Audience Card Hover Effects with GSAP
